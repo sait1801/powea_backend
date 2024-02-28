@@ -14,8 +14,8 @@ def run_code():
     starting_hour = request.args.get('starting_hour', default=19, type=int)
     end_date = request.args.get('end_date', default='2023-02-01', type=str)
     end_hour = request.args.get('end_hour', default=8, type=int)
-    how_many_hours = request.args.get('hours', default=1, type=int)
-    how_many_kw = request.args.get('kw_need', default=10, type=int)
+    how_many_hours = request.args.get('how_many_hours', default=1, type=int)
+    how_many_kw = request.args.get('how_many_kw', default=10, type=int)
 
     # Data Loading
     data = pd.read_csv('ptf-2-years-for-gui.csv')
