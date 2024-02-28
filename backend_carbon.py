@@ -101,7 +101,7 @@ def calculate_energy_consumption():
         'daily_average_electricity_consumption', type=int)
 
     # Load data
-    df_plot = pd.read_csv('backend\df_plot_full.csv')
+    df_plot = pd.read_csv('df_plot_full.csv')
     df_plot['Date'] = pd.to_datetime(df_plot['Date'], format='%d.%m.%Y')
     # ===================================================================
     first_index = df_plot.loc[(df_plot['Date'] == pd.Timestamp(starting_date))]
