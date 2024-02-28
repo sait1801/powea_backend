@@ -239,11 +239,22 @@ def calculate_energy_consumption():
     normal_Data = df_normal_consumed_bus.tolist()
     print(renewable_Data)
     renewable_consumed = np.sum(ren_rates)
-    return jsonify({
+    response = jsonify({
         'total_energy_consumed': f"{total_energy_consumed}",
         "renewable_consumed": f"{renewable_consumed}",
         "renewable_data": renewable_Data,
-        "normal_data": normal_Data})
+        "normal_data": normal_Data
+    })
+    # Allow requests from any origin (not recommended for production)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    # You can also specify the specific origin of your frontend application
+    # response.headers['Access-Control-Allow-Origin'] = 'https://your-frontend-app.com'
+    return response
+    # return jsonify({
+    #     'total_energy_consumed': f"{total_energy_consumed}",
+    #     "renewable_consumed": f"{renewable_consumed}",
+    #     "renewable_data": renewable_Data,
+    #     "normal_data": normal_Data})
 
 
 if __name__ == '__main__':
