@@ -18,7 +18,7 @@ def run_code():
     how_many_kw = request.args.get('kw_need', default=10, type=int)
 
     # Data Loading
-    data = pd.read_csv('backend\ptf-2-years-for-gui.csv')
+    data = pd.read_csv('ptf-2-years-for-gui.csv')
     print(f"data size : {data.shape}")
     df = data.copy()
 
