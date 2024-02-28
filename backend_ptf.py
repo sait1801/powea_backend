@@ -188,12 +188,17 @@ def run_code():
     # Convert the 'normal ptf values' column to a list
     normal_ptf_json = normal_ptf_df['normal ptf values'].tolist()
 
-    return jsonify({
+    response = jsonify({
         'sum of best 3 values': sum(best_ptf_df['sum of best 3 values']),
         'sum of normal ptf values': sum(normal_ptf_df['normal ptf values']),
         'best_ptf_values': best_ptf_json,
         'normal_ptf_values': normal_ptf_json
     })
+    # Allow requests from any origin (not recommended for production)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    # You can also specify the specific origin of your frontend application
+    # response.headers['Access-Control-Allow-Origin'] = 'https://your-frontend-app.com'
+    return response
 
 
 if __name__ == '__main__':
